@@ -1,15 +1,13 @@
 Spring 整合 Hibernate
-===================
+-------------------
 
-1.目的
-----
+**1.目的**
 
 1). 有 IOC 容器来管理 Hibernate 的 SessionFactory  
 2). 让 Hibernate 使用上 Spring 的声明式事务
 
 
-2. 整合步骤:
-----
+**2. 整合步骤:**
 
 1). 加入 hibernate  
 ①. jar 包  
@@ -23,7 +21,6 @@ Spring 整合 Hibernate
 
 3). 整合.
 
-3. 编写代码
-----
+**3. 编写代码**
 
 
