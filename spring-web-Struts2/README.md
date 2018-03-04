@@ -1,49 +1,56 @@
-1. ÔÚ WEB »·¾³ÏÂÊ¹ÓÃ Spring
+1.åœ¨ WEB ç¯å¢ƒä¸‹ä½¿ç”¨ Spring
+--------------------
 
-¢Ù. ĞèÒª¶îÍâ¼ÓÈëµÄ jar °ü:
-
+â‘ . éœ€è¦é¢å¤–åŠ å…¥çš„ jar åŒ…:  
 spring-web-4.0.0.RELEASE.jar
 spring-webmvc-4.0.0.RELEASE.jar
 
-¢Ú. Spring µÄÅäÖÃÎÄ¼ş, ºÍ·Ç WEB »·¾³Ã»ÓĞÊ²Ã´²»Í¬
+â‘¡. Spring çš„é…ç½®æ–‡ä»¶:å’Œé WEB ç¯å¢ƒæ²¡æœ‰ä»€ä¹ˆä¸åŒ
 
-¢Û. ĞèÒªÔÚ web.xml ÎÄ¼şÖĞ¼ÓÈëÈçÏÂÅäÖÃ:
+â‘¢. éœ€è¦åœ¨ web.xml æ–‡ä»¶ä¸­åŠ å…¥å¦‚ä¸‹é…ç½®: Â 
 
-<!-- ÅäÖÃ Spring ÅäÖÃÎÄ¼şµÄÃû³ÆºÍÎ»ÖÃ -->
-<context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
-</context-param>
+    <!-- é…ç½® Spring é…ç½®æ–‡ä»¶çš„åç§°å’Œä½ç½® --> Â 
+    <context-param> Â 
+     Â   <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>  
+    </context-param>  
+    
+    <!-- å¯åŠ¨ IOC å®¹å™¨çš„ ServletContextListener -->  
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener> Â 
 
-<!-- Æô¶¯ IOC ÈİÆ÷µÄ ServletContextListener -->
-<listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
+2.Springæ•´åˆStructs2
+------------------
 
-2.SpringÕûºÏStructs2
+1).æ•´åˆç›®æ ‡ï¼šä½¿IOCå®¹å™¨æ¥ç®¡ç†Structs2çš„Actionï¼
 
-1).ÕûºÏÄ¿±ê£ºÊ¹IOCÈİÆ÷À´¹ÜÀíStructs2µÄAction£¡
+2).å¦‚ä½•æ•´åˆ  
+â‘ æ­£å¸¸åŠ å…¥Structs2  
 
-2).ÈçºÎÕûºÏ
-¢ÙÕı³£¼ÓÈëStructs2
-¢ÚÔÚSpringµÄIOCÖĞÅäÖÃStructs2µÄaction
-×¢Òâ£ºÔÚIOCÈİÆ÷ÖĞÅäÖÃStructs2µÄActionÊ±£¬ĞèÒªÅäÖÃscopeÊôĞÔ£¬ÆäÖµ±ØĞëÎªprototype
-<bean id="personAction" class="com.spring.struts2.action.PersonAction"
-scope="prototype">
-    <property name="personService" ref="personService"></property>
-</bean>
-¢ÛÅäÖÃStructs2µÄÅäÖÃÎÄ¼ş: Action½ÚµãµÄ class ĞèÒªÖ¸Ïò IOC ÈİÆ÷ÖĞ¸Ã bean µÄ id
-<action name="person-save" class="personAction">
-      <result>/success.jsp</result>
-</action>
-¢Ü¼ÓÈëstruts2-spring-plugin-2.3.15.3.jar
+â‘¡åœ¨Springçš„IOCä¸­é…ç½®Structs2çš„action  
+æ³¨æ„ï¼šåœ¨IOCå®¹å™¨ä¸­é…ç½®Structs2çš„Actionæ—¶ï¼Œéœ€è¦é…ç½®scopeå±æ€§ï¼Œå…¶å€¼å¿…é¡»ä¸ºprototype  
 
-3). ÕûºÏÔ­Àí: Í¨¹ıÌí¼Ó struts2-spring-plugin-2.3.15.3.jar ÒÔºó, Struts2 »áÏÈ´Ó IOC ÈİÆ÷ÖĞ
-»ñÈ¡ Action µÄÊµÀı.
-if (appContext.containsBean(beanName)) {
-    o = appContext.getBean(beanName);
-} else {
-    Class beanClazz = getClassInstance(beanName);
-    o = buildBean(beanClazz, extraContext);
-}
+    <bean id="personAction" class="com.spring.struts2.action.PersonAction"  
+    scope="prototype">  
+        <property name="personService" ref="personService"></property>  
+    </bean>  
+
+â‘¢é…ç½®Structs2çš„é…ç½®æ–‡ä»¶: ActionèŠ‚ç‚¹çš„ class éœ€è¦æŒ‡å‘ IOC å®¹å™¨ä¸­è¯¥ bean çš„ id  
+
+    <action name="person-save" class="personAction">  
+          <result>/success.jsp</result>  
+    </action>  
+
+â‘£åŠ å…¥struts2-spring-plugin-2.3.15.3.jar  
+
+3). æ•´åˆåŸç†: é€šè¿‡æ·»åŠ  struts2-spring-plugin-2.3.15.3.jar ä»¥å, Struts2 ä¼šå…ˆä» IOC å®¹å™¨ä¸­  
+è·å– Action çš„å®ä¾‹.  
+
+    if (appContext.containsBean(beanName)) {  
+        o = appContext.getBean(beanName);  
+    } else {  
+        Class beanClazz = getClassInstance(beanName);  
+        o = buildBean(beanClazz, extraContext);  
+    }  
 
